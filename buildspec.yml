@@ -1,0 +1,31 @@
+version: 0.2
+
+env:
+  parameter-store:
+    LOGIN_USER: /CodeBuild/LOGIN_USER
+    LOGIN_PASSWORD: /CodeBuild/LOGIN_PASSWORD
+    GITHUB_TOKEN: /CodeBuild/GITHUB_TOKEN
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto11
+
+  pre_build:
+    commands:
+      - echo $LOGIN_PASSWORD | docker login -u $LOGIN_USER --password-stdin
+
+  build:
+    commands:
+      - chmod +x gradlew
+      - ./gradlew build -PGITHUB_TOKEN=$GITHUB_TOKEN -x test
+      - docker build -t rubyride/trip-manager:development .
+      - docker push rubyride/trip-manager:development
+
+#reports:
+#  TripManagerIntegrationTests:
+#    files:
+#      - build/test-results/test/TEST-com.rubyride.tripmanager.TripManagerApplicationTests.xml
+#    base-directory: location
+#    discard-paths: yes
+#    file-format: JunitXml

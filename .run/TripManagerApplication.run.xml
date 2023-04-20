@@ -1,0 +1,20 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="TripManagerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="trip-manager.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="com.rubyride.tripmanager.TripManagerApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <envs>
+      <env name="REDIS_HOST" value="localhost" />
+      <env name="REDIS_PORT" value="6379" />
+      <env name="REDIS_PASSWORD" value="" />
+      <env name="MONGODB_HOST" value="localhost" />
+      <env name="MONGODB_PORT" value="27017" />
+      <env name="MONGODB_NAME" value="admin" />
+      <env name="BASE_URL" value="dev.rubyride.co" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

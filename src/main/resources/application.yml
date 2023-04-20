@@ -1,0 +1,67 @@
+REDIS_HOST: localhost
+REDIS_PORT: 6379
+REDIS_PASSWORD:
+
+MONGODB_NAME: trip-manager
+MONGODB_HOST: localhost
+MONGODB_PORT: 27017
+MONGODB_AUTH: true
+
+BASE_URL: dev.rubyride.co
+
+logging:
+  file:
+    name: trip-manager.log
+
+  level.org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+management:
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+environment:
+  baseUrl: dev.rubyride.co
+  resetLimitInMinutes: 60
+
+server:
+  error:
+    include-message: always
+  servlet:
+    context-path: /v1
+  port: 8080
+  max-http-header-size: 65536
+
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username:
+      password:
+      database: trip-manager
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ruby@rubyride.co
+    password: JMCjb5TwRniyxzmhfCSp
+
+twilio:
+  accountSid: AC86fe662727d152b53c80e3fb2ea0949d
+  serviceSid: IS5a1506a8a84ebe16de26aa9bfe675df9
+  authToken: 044e789e3e28a3a1e3d9aea13a65e683
+  fromNumber: +14125047829
+
+email:
+  contact: aeden@rubyride.co
+  from: ruby@rubyride.com

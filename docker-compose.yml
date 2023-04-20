@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  redis:
+    image: 'redis'
+    container_name: 'redis'
+    environment:
+      - REDIS_PASSWORD=redis
+    entrypoint: redis-server --appendonly yes
+    restart: always
+    volumes:
+      - ./redis-volume:/data
+    ports:
+      - 6379:6379
+
+  mongo:
+    image: 'mongo'
+    container_name: 'mongo'
+    environment:
+      - MONGO_INITDB_DATABASE=trip-manager
+      - MONGO_INITDB_ROOT_USERNAME=mongo
+      - MONGO_INITDB_ROOT_PASSWORD=mongo
+    volumes:
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+      - ./mongo-volume:/data/db
+    ports:
+      - '27017-27019:27017-27019'
+#
+#  web:
+#    image: 'trip-manager'
+#    container_name: 'trip-manager'
+#    depends_on:
+#      - 'redis'
+#      - 'mongo'
+#    environment:
+#      - REDIS_HOST=redis
+#      - MONGODB_HOST=mongo
+#    ports:
+#      - 8080:8080

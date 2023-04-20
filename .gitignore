@@ -1,0 +1,48 @@
+HELP.md
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+openapi.yaml
+models.yaml
+gradle.properties
+
+trip-manager.log*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### OpenAPI generated ###
+.openapi-generator-ignore
+.openapi-generator/
+src/generated/
+pom.xml
+
+### Data volumes from Docker Compose ###
+mongo-volume/
+redis-volume/
